@@ -30,6 +30,11 @@
 <script defer src="{{ $swJS.RelPermalink }}" integrity="{{ $swJS.Data.Integrity }}"></script>
 {{ end -}}
 
+{{- $customJS := resources.Get "custom.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $customJS.RelPermalink }}" integrity="{{ $customJS.Data.Integrity }}"></script>
+
+<script src="//kit.fontawesome.com/e81509d074.js" crossorigin="anonymous"></script>
+
 {{- template "_internal/google_analytics_async.html" . -}}
 
 <!-- RSS -->
